@@ -28,7 +28,7 @@ public class AirportSearchControllerTest {
 
 	@Test
 	public void testController() throws Exception {
-		mockMvc.perform(get("/api/v1/facilitySearch?searchZipCode=3M").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(get("/api/v1/facility?searchZipCode=3M").contentType(MediaType.APPLICATION_JSON)
 				.characterEncoding("utf-8").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 	
