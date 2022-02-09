@@ -24,7 +24,7 @@ public class FacilityService {
 	}
 
 	protected String retrieveJson() {
-		try (InputStream in = getClass().getResourceAsStream("/AirportList.json");
+		try (InputStream in = getClass().getResourceAsStream("/FacilitiesList.json");
 			    BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
 			return reader.lines().collect(Collectors.joining(System.lineSeparator()));
 		} catch (Exception e) {
