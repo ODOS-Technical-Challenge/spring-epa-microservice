@@ -29,17 +29,13 @@ public class FacilityService {
 			    BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
 			return reader.lines().collect(Collectors.joining(System.lineSeparator()));
 		} 
-		finally {}
 		
 	}
 	
 	protected List<FacilityDto> parseJson(String json) throws Exception {
 		try {
-			return objectMapper.readValue(json, new TypeReference<List<FacilityDto>>(){});
-		} 
-		finally {
-			
-		}
+			return objectMapper.readValue(json, new TypeReference<List<FacilityDto>>() {});
+		} finally {}
 	}
 	
 	public List<FacilityDto> searchFacility(String searchString) throws Exception{
