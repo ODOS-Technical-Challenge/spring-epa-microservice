@@ -3,7 +3,6 @@ package com.riva.odos.services;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -32,15 +31,15 @@ class FacilityServiceTest {
 	private static final String UNKNOWN = "unknown";
 	
 	@Test
-	void shouldGetFacilities() {
+	void shouldGetFacilities() throws Exception {
 		List<FacilityDto> facilities = unSpyFacilityService.getFacilities();
 		
-//		assertTrue(facilities.size() > 0);
-		assertTrue(true);
+		
+		assertTrue(facilities.size() > 0);
 	}
 	
 	@Test
-	public void testSearchFacilities(){
+	public void testSearchFacilities() throws Exception{
 		List<FacilityDto> returnedFacilityList = new ArrayList<>();
 		FacilityDto expectedfacilityInfo = new FacilityDto();
 		expectedfacilityInfo.setName("3M");
@@ -50,20 +49,20 @@ class FacilityServiceTest {
 		
 		doReturn(testFacilities).when(facilityService).getFacilities();
 		
-		returnedFacilityList = facilityService.searchFacility("3M");
+		returnedFacilityList = facilityService.searchFacility("20713");
 		
-		assertTrue(true);
-//		assertEquals(expectedfacilityInfo.getName(), returnedFacilityList.get(0).getName());
-//		assertEquals(expectedfacilityInfo.getZipCode(), returnedFacilityList.get(0).getZipCode());
-		
+		assertEquals(expectedfacilityInfo.getName(), returnedFacilityList.get(0).getName());
+		assertEquals(expectedfacilityInfo.getZipCode(), returnedFacilityList.get(0).getZipCode());
 	}
 	
 	@Test
-	public void testSearchFacilitiesNotFound(){
+	public void testSearchFacilitiesNotFound() throws Exception{
 		List<FacilityDto> expectedfacilityInfoList = new ArrayList<>();
 		List<FacilityDto> returnedFacilityList = new ArrayList<>();
 		
-		when(facilityService.getFacilities()).thenReturn(testFacilityList());
+		List<FacilityDto> testFacilities = testFacilityList();
+		
+		doReturn(testFacilities).when(facilityService).getFacilities();
 		
 		returnedFacilityList = facilityService.searchFacility(UNKNOWN);
 		

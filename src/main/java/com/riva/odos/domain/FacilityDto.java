@@ -2,6 +2,8 @@ package com.riva.odos.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +16,8 @@ public class FacilityDto {
 	private String county;
 	private String state;
 	private String zipCode;
-	private String longitude;
-	private String latitude;
+	private Long longitude;
+	private Long latitude;
+	@JsonProperty("chemicals")
 	private List<ChemicalDto> chemicals;
 }

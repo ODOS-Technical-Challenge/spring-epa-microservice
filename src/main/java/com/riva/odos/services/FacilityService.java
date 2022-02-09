@@ -16,31 +16,29 @@ import com.riva.odos.domain.FacilityDto;
 
 @Service
 public class FacilityService {
+	
 	@Autowired
 	ObjectMapper objectMapper;
 
-	public List<FacilityDto> getFacilities() {
+	public List<FacilityDto> getFacilities() throws Exception {
 		return parseJson(retrieveJson());
 	}
 
-	protected String retrieveJson() {
-		try (InputStream in = getClass().getResourceAsStream("/AirportList.json");
+	protected String retrieveJson() throws Exception {
+		try (InputStream in = getClass().getResourceAsStream("/FacilitiesList.json");
 			    BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
 			return reader.lines().collect(Collectors.joining(System.lineSeparator()));
-		} catch (Exception e) {
-			return null;
-		}
+		} 
+		
 	}
 	
-	protected List<FacilityDto> parseJson(String json) {
+	protected List<FacilityDto> parseJson(String json) throws Exception {
 		try {
-			return objectMapper.readValue(json, new TypeReference<List<FacilityDto>>(){});
-		} catch (Exception e) {
-			return new ArrayList<>();
-		}
+			return objectMapper.readValue(json, new TypeReference<List<FacilityDto>>() {});
+		} finally {}
 	}
 	
-	public List<FacilityDto> searchFacility(String searchString){
+	public List<FacilityDto> searchFacility(String searchString) throws Exception{
 		List<FacilityDto> allFacilities = getFacilities();
 		List<FacilityDto> searchResults = new ArrayList<>();
 		for(FacilityDto facility: allFacilities) {
