@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 public class ChemicalDto {
 	private String name;
 	private String usage;
-	private String healthEffect;
+	private String healthEffects;
 }

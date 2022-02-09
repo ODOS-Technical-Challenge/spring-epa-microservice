@@ -3,7 +3,6 @@ package com.riva.odos.services;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -32,16 +31,15 @@ class FacilityServiceTest {
 	private static final String UNKNOWN = "unknown";
 	
 	@Test
-	void shouldGetFacilities() {
+	void shouldGetFacilities() throws Exception {
 		List<FacilityDto> facilities = unSpyFacilityService.getFacilities();
 		
 		
 		assertTrue(facilities.size() > 0);
-//		assertTrue(true);
 	}
 	
 	@Test
-	public void testSearchFacilities(){
+	public void testSearchFacilities() throws Exception{
 		List<FacilityDto> returnedFacilityList = new ArrayList<>();
 		FacilityDto expectedfacilityInfo = new FacilityDto();
 		expectedfacilityInfo.setName("3M");
@@ -58,11 +56,13 @@ class FacilityServiceTest {
 	}
 	
 	@Test
-	public void testSearchFacilitiesNotFound(){
+	public void testSearchFacilitiesNotFound() throws Exception{
 		List<FacilityDto> expectedfacilityInfoList = new ArrayList<>();
 		List<FacilityDto> returnedFacilityList = new ArrayList<>();
 		
-		when(facilityService.getFacilities()).thenReturn(testFacilityList());
+		List<FacilityDto> testFacilities = testFacilityList();
+		
+		doReturn(testFacilities).when(facilityService).getFacilities();
 		
 		returnedFacilityList = facilityService.searchFacility(UNKNOWN);
 		

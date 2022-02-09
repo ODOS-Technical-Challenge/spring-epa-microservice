@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.riva.odos.domain.AirportInfoDto;
 import com.riva.odos.domain.FacilityDto;
 import com.riva.odos.services.FacilityService;
 
@@ -22,8 +21,8 @@ public class FacilitySearchController {
 	@Autowired
 	FacilityService facilityService;
 	
-    @GetMapping(value="/facilitySearch")
-    public List<FacilityDto> facilitySearch(@RequestParam(value="searchZipCode") String searchZipCode) {
+    @GetMapping(value="/facility")
+    public List<FacilityDto> facilitySearch(@RequestParam(value="searchZipCode") String searchZipCode) throws Exception{
         return facilityService.searchFacility(searchZipCode);
     }
 }
