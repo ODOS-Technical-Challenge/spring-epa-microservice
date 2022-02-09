@@ -35,6 +35,7 @@ class FacilityServiceTest {
 	void shouldGetFacilities() {
 		List<FacilityDto> facilities = unSpyFacilityService.getFacilities();
 		
+		
 		assertTrue(facilities.size() > 0);
 //		assertTrue(true);
 	}
@@ -52,10 +53,8 @@ class FacilityServiceTest {
 		
 		returnedFacilityList = facilityService.searchFacility("20713");
 		
-//		assertTrue(true);
 		assertEquals(expectedfacilityInfo.getName(), returnedFacilityList.get(0).getName());
 		assertEquals(expectedfacilityInfo.getZipCode(), returnedFacilityList.get(0).getZipCode());
-		
 	}
 	
 	@Test

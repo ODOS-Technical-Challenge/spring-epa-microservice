@@ -5,7 +5,7 @@
      "city": "SAINT JOHNSBURY",
      "county": "CALEDONIA",
      "state": "VT",
-     "zipCode": 5819,
+     "zipCode": "05819",
      "latitude": 44.42767,
      "longitude": -71.97842,
      "chemicals": [
@@ -21,7 +21,7 @@
      "city": "PORT ARTHUR",
      "county": "JEFFERSON",
      "state": "TX",
-     "zipCode": 77641,
+     "zipCode": "77641",
      "latitude": 29.828587,
      "longitude": -93.963257,
      "chemicals": [
@@ -37,7 +37,7 @@
      "city": "LANCASTER",
      "county": "ERIE",
      "state": "NY",
-     "zipCode": 14086,
+     "zipCode": "14086",
      "latitude": 42.92777,
      "longitude": -78.59773,
      "chemicals": [
@@ -53,7 +53,7 @@
      "city": "LYONS",
      "county": "RICE",
      "state": "KS",
-     "zipCode": 67554,
+     "zipCode": "67554",
      "latitude": 38.329405,
      "longitude": -98.190724,
      "chemicals": [
@@ -69,7 +69,7 @@
      "city": "LAKE BLUFF",
      "county": "LAKE",
      "state": "IL",
-     "zipCode": 60044,
+     "zipCode": "60044",
      "latitude": 42.280372,
      "longitude": -87.870856,
      "chemicals": [
@@ -85,7 +85,7 @@
      "city": "SAINT LOUIS",
      "county": "ST LOUIS (CITY)",
      "state": "MO",
-     "zipCode": 63139,
+     "zipCode": "63139",
      "latitude": 38.60735,
      "longitude": -90.2729,
      "chemicals": [
@@ -101,7 +101,7 @@
      "city": "ARTESIA",
      "county": "EDDY",
      "state": "NM",
-     "zipCode": 88210,
+     "zipCode": "88210",
      "latitude": 32.848593,
      "longitude": -104.394383,
      "chemicals": [
@@ -117,7 +117,7 @@
      "city": "DETROIT",
      "county": "WAYNE",
      "state": "MI",
-     "zipCode": 48214,
+     "zipCode": "48214",
      "latitude": 42.384694,
      "longitude": -82.97872,
      "chemicals": [
@@ -133,7 +133,7 @@
      "city": "ORCHARD PARK",
      "county": "ERIE",
      "state": "NY",
-     "zipCode": 14127,
+     "zipCode": "14127",
      "latitude": 42.77843,
      "longitude": -78.77987,
      "chemicals": [
@@ -149,7 +149,7 @@
      "city": "CLEVELAND",
      "county": "CUYAHOGA",
      "state": "OH",
-     "zipCode": 44111,
+     "zipCode": "44111",
      "latitude": 41.46738,
      "longitude": -81.77398,
      "chemicals": [
