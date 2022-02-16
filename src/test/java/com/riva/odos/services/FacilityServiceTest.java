@@ -26,13 +26,12 @@ class FacilityServiceTest {
 	
 	@Autowired
 	FacilityService unSpyFacilityService;
-
+	
 	private static final String UNKNOWN = "unknown";
 	
 	@Test
 	void shouldGetFacilities() throws Exception {
 		List<FacilityDto> facilities = unSpyFacilityService.getFacilities();
-		
 		
 		assertTrue(facilities.size() > 0);
 	}
@@ -53,6 +52,7 @@ class FacilityServiceTest {
 		assertEquals(expectedfacilityInfo.getName(), returnedFacilityList.get(0).getName());
 		assertEquals(expectedfacilityInfo.getZipCode(), returnedFacilityList.get(0).getZipCode());
 	}
+	
 	
 	@Test
 	void testSearchFacilitiesNotFound() throws Exception{
