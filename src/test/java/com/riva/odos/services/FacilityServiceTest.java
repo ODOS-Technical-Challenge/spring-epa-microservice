@@ -2,19 +2,25 @@ package com.riva.odos.services;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.Spy;
 
-import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.doReturn;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.riva.odos.domain.FacilityDto;
 
@@ -27,6 +33,12 @@ class FacilityServiceTest {
 	
 	@Autowired
 	FacilityService unSpyFacilityService;
+	
+	@MockBean 
+	ObjectMapper objectMapper;
+	
+	@Mock
+	JsonProcessingException jsonProcessingException;
 
 	private static final String UNKNOWN = "unknown";
 	
@@ -53,6 +65,27 @@ class FacilityServiceTest {
 		
 		assertEquals(expectedfacilityInfo.getName(), returnedFacilityList.get(0).getName());
 		assertEquals(expectedfacilityInfo.getZipCode(), returnedFacilityList.get(0).getZipCode());
+	}
+	
+	@Test
+	void testSearchFacilitiesExceptionThrown() throws Exception {
+		Mockito.doAnswer(invocation -> {
+            throw jsonProcessingException;
+        }).when(objectMapper).readValue(Mockito.anyString(), Mockito.any(TypeReference.class));
+		unSpyFacilityService.getFacilities();
+	}
+	
+//	@Test
+//	void testRetrieveJsonExceptionThrown() throws Exception {
+//		Mockito.doAnswer(invocation -> {
+//            throw new IOException();
+//        }).when(objectMapper).readValue("", new TypeReference<List<FacilityDto>>() {});
+//		
+//	}
+	
+	@Test
+	void testRetrieveJsonException() {
+		
 	}
 	
 	@Test
