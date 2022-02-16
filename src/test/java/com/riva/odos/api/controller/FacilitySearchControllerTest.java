@@ -18,7 +18,7 @@ import com.riva.odos.services.FacilityService;
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(FacilitySearchController.class)
 @ContextConfiguration(classes = FacilitySearchController.class)
-public class AirportSearchControllerTest {
+public class FacilitySearchControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
