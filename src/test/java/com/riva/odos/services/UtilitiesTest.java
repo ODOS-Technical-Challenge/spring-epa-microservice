@@ -1,5 +1,9 @@
 package com.riva.odos.services;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -23,6 +27,9 @@ public class UtilitiesTest {
 	@Mock
 	JsonProcessingException jsonProcessingException;
 	
+	@Mock
+	IOException ioException;
+	
 	@Autowired
 	FacilityService unSpyFacilityService;
 	
@@ -35,6 +42,20 @@ public class UtilitiesTest {
 		
 		
 		unSpyFacilityService.getFacilities();
+		
+		assertEquals(0, unSpyFacilityService.getFacilities().size());
+	}
+	
+	@Test
+	void testSearchFacilitiesIOExceptionThrown() throws Exception {
+		Mockito.doAnswer(invocation -> {
+            throw ioException;
+        }).when(objectMapper).readValue(Mockito.anyString(), Mockito.any(TypeReference.class));
+		
+		
+		unSpyFacilityService.getFacilities();
+		
+		assertEquals(0, unSpyFacilityService.getFacilities().size());
 	}
 	
 }
