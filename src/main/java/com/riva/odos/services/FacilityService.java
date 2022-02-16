@@ -18,7 +18,7 @@ import com.riva.odos.domain.FacilityDto;
 
 @Service
 public class FacilityService {
-	
+
 	@Autowired
 	ObjectMapper objectMapper;
 
@@ -28,31 +28,28 @@ public class FacilityService {
 
 	protected String retrieveJson() {
 		try (InputStream in = getClass().getResourceAsStream("/FacilitiesList.json");
-			    BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
+				BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
 			return reader.lines().collect(Collectors.joining(System.lineSeparator()));
 		} catch (IOException e) {
 			return "Error retrieving JSON";
-		} 
+		}
 	}
-	
+
 	protected List<FacilityDto> parseJson(String json) {
 		try {
-			return objectMapper.readValue(json, new TypeReference<List<FacilityDto>>() {});
+			return objectMapper.readValue(json, new TypeReference<List<FacilityDto>>() {
+			});
 		} catch (JsonProcessingException e) {
 			return new ArrayList<FacilityDto>();
 		}
-		
+
 	}
-	
+
 	public List<FacilityDto> searchFacility(String searchString) {
 		List<FacilityDto> allFacilities = getFacilities();
-		List<FacilityDto> searchResults = new ArrayList<>();
-		for(FacilityDto facility: allFacilities) {
-			if(facility.getZipCode().equals(searchString)) {
-				searchResults.add(facility);
-			}
-		}
-		return (searchResults);
+
+		return allFacilities.stream().filter((facility) -> facility.getZipCode().equals(searchString))
+				.collect(Collectors.toList());
 	}
-	
+
 }

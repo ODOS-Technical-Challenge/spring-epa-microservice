@@ -11,7 +11,14 @@
      "chemicals": [
        {
          "name": "Manganese",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "TRI",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": true,
+         "carcinogenInd": false,
+         "pfasInd": false,
+         "metalInd": true
        }
      ]
    },
@@ -27,7 +34,14 @@
      "chemicals": [
        {
          "name": "Acrylonitrile",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "TRI",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": true,
+         "carcinogenInd": true,
+         "pfasInd": false,
+         "metalInd": false
        }
      ]
    },
@@ -43,7 +57,14 @@
      "chemicals": [
        {
          "name": "Lead",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "PBT",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": true,
+         "carcinogenInd": true,
+         "pfasInd": false,
+         "metalInd": true
        }
      ]
    },
@@ -59,7 +80,14 @@
      "chemicals": [
        {
          "name": "Copper compounds",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "TRI",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": false,
+         "carcinogenInd": false,
+         "pfasInd": false,
+         "metalInd": true
        }
      ]
    },
@@ -75,7 +103,14 @@
      "chemicals": [
        {
          "name": "Manganese",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "TRI",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": true,
+         "carcinogenInd": false,
+         "pfasInd": false,
+         "metalInd": true
        }
      ]
    },
@@ -91,7 +126,14 @@
      "chemicals": [
        {
          "name": "Certain glycol ethers",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "TRI",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": true,
+         "carcinogenInd": false,
+         "pfasInd": false,
+         "metalInd": false
        }
      ]
    },
@@ -107,7 +149,14 @@
      "chemicals": [
        {
          "name": "Molybdenum trioxide",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "TRI",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": false,
+         "carcinogenInd": false,
+         "pfasInd": false,
+         "metalInd": true
        }
      ]
    },
@@ -123,7 +172,14 @@
      "chemicals": [
        {
          "name": "Benzene",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "TRI",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": true,
+         "carcinogenInd": true,
+         "pfasInd": false,
+         "metalInd": false
        }
      ]
    },
@@ -139,7 +195,14 @@
      "chemicals": [
        {
          "name": "Manganese",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "TRI",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": true,
+         "carcinogenInd": false,
+         "pfasInd": false,
+         "metalInd": true
        }
      ]
    },
@@ -155,7 +218,14 @@
      "chemicals": [
        {
          "name": "Nickel",
-         "healthEffects": "death"
+         "mixtureName": "NA",
+         "elementalMetalIncluded": false,
+         "classification": "TRI",
+         "unitOfMeasure": "Pounds",
+         "cleanAirInd": true,
+         "carcinogenInd": true,
+         "pfasInd": false,
+         "metalInd": true
        }
      ]
    }
