@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Spy;
 
-import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.doReturn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,13 +26,12 @@ class FacilityServiceTest {
 	
 	@Autowired
 	FacilityService unSpyFacilityService;
-
+	
 	private static final String UNKNOWN = "unknown";
 	
 	@Test
 	void shouldGetFacilities() throws Exception {
 		List<FacilityDto> facilities = unSpyFacilityService.getFacilities();
-		
 		
 		assertTrue(facilities.size() > 0);
 	}
@@ -54,6 +52,7 @@ class FacilityServiceTest {
 		assertEquals(expectedfacilityInfo.getName(), returnedFacilityList.get(0).getName());
 		assertEquals(expectedfacilityInfo.getZipCode(), returnedFacilityList.get(0).getZipCode());
 	}
+	
 	
 	@Test
 	void testSearchFacilitiesNotFound() throws Exception{
