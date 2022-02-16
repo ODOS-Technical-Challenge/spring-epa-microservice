@@ -23,23 +23,24 @@ public class FacilityService {
 	ObjectMapper objectMapper;
 
 	public List<FacilityDto> getFacilities() {
-		return parseJson(retrieveJson());
+		return parseJson();
 	}
 
-	protected String retrieveJson() {
+	protected String retrieveJson() throws IOException {
 		try (InputStream in = getClass().getResourceAsStream("/FacilitiesList.json");
 				BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
 			return reader.lines().collect(Collectors.joining(System.lineSeparator()));
-		} catch (IOException e) {
-			return "Error retrieving JSON";
 		}
 	}
 
-	protected List<FacilityDto> parseJson(String json) {
+	protected List<FacilityDto> parseJson() {
 		try {
+			String json = retrieveJson();
 			return objectMapper.readValue(json, new TypeReference<List<FacilityDto>>() {
 			});
 		} catch (JsonProcessingException e) {
+			return Lists.newArrayList();
+		} catch (IOException e) {
 			return Lists.newArrayList();
 		}
 	}
