@@ -41,7 +41,6 @@ public class FacilityService {
 		} catch (JsonProcessingException e) {
 			return new ArrayList<FacilityDto>();
 		}
-		
 	}
 	
 	public List<FacilityDto> searchFacility(String searchString) {
