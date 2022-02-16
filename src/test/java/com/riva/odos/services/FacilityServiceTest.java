@@ -39,7 +39,7 @@ class FacilityServiceTest {
 	}
 	
 	@Test
-	public void testSearchFacilities() throws Exception{
+	void testSearchFacilities() throws Exception{
 		List<FacilityDto> returnedFacilityList = new ArrayList<>();
 		FacilityDto expectedfacilityInfo = new FacilityDto();
 		expectedfacilityInfo.setName("3M");
@@ -56,7 +56,7 @@ class FacilityServiceTest {
 	}
 	
 	@Test
-	public void testSearchFacilitiesNotFound() throws Exception{
+	void testSearchFacilitiesNotFound() throws Exception{
 		List<FacilityDto> expectedfacilityInfoList = new ArrayList<>();
 		List<FacilityDto> returnedFacilityList = new ArrayList<>();
 		
