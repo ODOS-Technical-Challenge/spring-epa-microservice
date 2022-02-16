@@ -22,7 +22,7 @@ public class FacilitySearchController {
 	FacilityService facilityService;
 	
     @GetMapping(value="/facility")
-    public List<FacilityDto> facilitySearch(@RequestParam(value="searchZipCode") String searchZipCode) throws Exception{
+    public List<FacilityDto> facilitySearch(@RequestParam(value="searchZipCode") String searchZipCode) {
         return facilityService.searchFacility(searchZipCode);
     }
 }
