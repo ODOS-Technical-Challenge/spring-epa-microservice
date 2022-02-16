@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,14 +41,14 @@ public class FacilityService {
 			return objectMapper.readValue(json, new TypeReference<List<FacilityDto>>() {
 			});
 		} catch (JsonProcessingException e) {
-			return new ArrayList<FacilityDto>();
+			return Lists.newArrayList();
 		}
 	}
 
 	public List<FacilityDto> searchFacility(String searchString) {
 		List<FacilityDto> allFacilities = getFacilities();
 
-		return allFacilities.stream().filter((facility) -> facility.getZipCode().equals(searchString))
+		return allFacilities.stream().filter(facility -> facility.getZipCode().equals(searchString))
 				.collect(Collectors.toList());
 	}
 
