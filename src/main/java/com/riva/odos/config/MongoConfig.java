@@ -22,10 +22,12 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
  
     @Override
     public MongoClient mongoClient() {
-        ConnectionString connectionString = new ConnectionString("mongodb://mongo.dev.odos-tc.demoriva.com:27017/2020");
+//    	MongoCredential mongoCredential = MongoCredential.createScramSha1Credential("root", getDatabaseName(), "XK4ze7Ao1J".toCharArray());
+
+        ConnectionString connectionString = new ConnectionString("mongodb://{user}:{password}@mongo.dev.odos-tc.demoriva.com:27017/2020?authSource=admin");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
             .applyConnectionString(connectionString)
-            .credential(MongoCredential.createPlainCredential("user", getDatabaseName(), "password".toCharArray()))
+//            .credential(mongoCredential)
             .build();
         
         return MongoClients.create(mongoClientSettings);
