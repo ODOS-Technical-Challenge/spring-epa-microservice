@@ -51,8 +51,9 @@ public class FacilityService {
 		}
 	}
 
-	public List<Facility> searchFacility(String searchString) {
-		return getFacilities();
+	public List<Facility> searchFacility(Integer searchString) {
+		return facilityRepository.findByZipCode(searchString);
+//		return getFacilities();
 
 //		return allFacilities.stream().filter(facility -> facility.getZipCode().equals(searchString))
 //				.collect(Collectors.toList());

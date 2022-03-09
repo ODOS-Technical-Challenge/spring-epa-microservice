@@ -1,5 +1,6 @@
 package com.riva.odos.domain;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -31,7 +32,7 @@ public class Facility {
     
     @DBRef
     @Field("15. FACILITY ZIP CODE")
-    private String zipCode;
+    private int zipCode;
     
     @DBRef
     @Field("47. LATITUDE")
