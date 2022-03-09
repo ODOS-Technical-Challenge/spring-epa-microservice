@@ -15,6 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.riva.odos.domain.Facility;
 import com.riva.odos.domain.FacilityDto;
 
 @ExtendWith(SpringExtension.class)
@@ -31,14 +32,14 @@ class FacilityServiceTest {
 	
 	@Test
 	void shouldGetFacilities() throws Exception {
-		List<FacilityDto> facilities = unSpyFacilityService.getFacilities();
+		List<Facility> facilities = unSpyFacilityService.getFacilities();
 		
 		assertTrue(facilities.size() > 0);
 	}
 	
 	@Test
 	void testSearchFacilities() throws Exception{
-		List<FacilityDto> returnedFacilityList = new ArrayList<>();
+		List<Facility> returnedFacilityList = new ArrayList<>();
 		FacilityDto expectedfacilityInfo = new FacilityDto();
 		expectedfacilityInfo.setName("3M");
 		expectedfacilityInfo.setZipCode("20713");
@@ -47,7 +48,7 @@ class FacilityServiceTest {
 		
 		doReturn(testFacilities).when(facilityService).getFacilities();
 		
-		returnedFacilityList = facilityService.searchFacility("20713");
+		returnedFacilityList = facilityService.searchFacility(20713);
 		
 		assertEquals(expectedfacilityInfo.getName(), returnedFacilityList.get(0).getName());
 		assertEquals(expectedfacilityInfo.getZipCode(), returnedFacilityList.get(0).getZipCode());
@@ -56,14 +57,14 @@ class FacilityServiceTest {
 	
 	@Test
 	void testSearchFacilitiesNotFound() throws Exception{
-		List<FacilityDto> expectedfacilityInfoList = new ArrayList<>();
-		List<FacilityDto> returnedFacilityList = new ArrayList<>();
+		List<Facility> expectedfacilityInfoList = new ArrayList<>();
+		List<Facility> returnedFacilityList = new ArrayList<>();
 		
 		List<FacilityDto> testFacilities = testFacilityList();
 		
 		doReturn(testFacilities).when(facilityService).getFacilities();
 		
-		returnedFacilityList = facilityService.searchFacility(UNKNOWN);
+		returnedFacilityList = facilityService.searchFacility(0);
 		
 		assertEquals(expectedfacilityInfoList.size(), returnedFacilityList.size());
 	}
