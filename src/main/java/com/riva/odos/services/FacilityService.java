@@ -14,16 +14,22 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.riva.odos.domain.Facility;
 import com.riva.odos.domain.FacilityDto;
+import com.riva.odos.repository.FacilityRepository;
 
 @Service
 public class FacilityService {
 
 	@Autowired
 	ObjectMapper objectMapper;
+	
+	@Autowired
+	FacilityRepository facilityRepository;
 
-	public List<FacilityDto> getFacilities() {
-		return parseJson();
+	public List<Facility> getFacilities() {
+		return facilityRepository.findAll();
+//		return parseJson();
 	}
 
 	protected String retrieveJson() throws IOException {
@@ -45,11 +51,12 @@ public class FacilityService {
 		}
 	}
 
-	public List<FacilityDto> searchFacility(String searchString) {
-		List<FacilityDto> allFacilities = getFacilities();
+	public List<Facility> searchFacility(Integer searchString) {
+		return facilityRepository.findByZipCode(searchString);
+//		return getFacilities();
 
-		return allFacilities.stream().filter(facility -> facility.getZipCode().equals(searchString))
-				.collect(Collectors.toList());
+//		return allFacilities.stream().filter(facility -> facility.getZipCode().equals(searchString))
+//				.collect(Collectors.toList());
 	}
 
 }

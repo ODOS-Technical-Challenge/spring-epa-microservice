@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.riva.odos.domain.Facility;
 import com.riva.odos.domain.FacilityDto;
 import com.riva.odos.services.FacilityService;
 
@@ -22,7 +23,7 @@ public class FacilitySearchController {
 	FacilityService facilityService;
 	
     @GetMapping(value="/facility")
-    public List<FacilityDto> facilitySearch(@RequestParam(value="searchZipCode") String searchZipCode) {
+    public List<Facility> facilitySearch(@RequestParam(value="searchZipCode") Integer searchZipCode) {
         return facilityService.searchFacility(searchZipCode);
     }
 }
