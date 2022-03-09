@@ -28,8 +28,6 @@ class FacilityServiceTest {
 	@Autowired
 	FacilityService unSpyFacilityService;
 	
-	private static final String UNKNOWN = "unknown";
-	
 	@Test
 	void shouldGetFacilities() throws Exception {
 		List<Facility> facilities = unSpyFacilityService.getFacilities();
