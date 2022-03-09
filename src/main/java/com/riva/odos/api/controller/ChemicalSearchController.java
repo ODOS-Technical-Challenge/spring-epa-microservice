@@ -10,19 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.riva.odos.domain.Facility;
-import com.riva.odos.services.FacilityService;
+import com.riva.odos.domain.Chemical;
+import com.riva.odos.services.ChemicalService;
 
 @RestController
 @RequestMapping(value="/api/v1", produces= {MediaType.APPLICATION_JSON_VALUE})
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class FacilitySearchController {
+public class ChemicalSearchController {
 
 	@Autowired
-	FacilityService facilityService;
+	ChemicalService chemicalService;
 	
-    @GetMapping(value="/facility")
-    public List<Facility> facilitySearch(@RequestParam(value="searchZipCode") Integer searchZipCode) {
-        return facilityService.searchFacility(searchZipCode);
+    @GetMapping(value="/chemical")
+    public List<Chemical> chemicalSearch(@RequestParam(value="searchChemName") String searchChemName) {
+        return chemicalService.searchChemicals(searchChemName); 
     }
+    
 }
