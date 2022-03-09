@@ -17,4 +17,9 @@ public class Chemical {
 	@DBRef
 	@Field("77. TRI CHEMICAL ID")
 	private String chemicalId;
+	
+	@DBRef
+	@Field("10. FACILITY NAME")
+	private String facilityName;
+
 }
